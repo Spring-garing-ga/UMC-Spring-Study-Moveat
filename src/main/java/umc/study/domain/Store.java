@@ -1,6 +1,7 @@
 package umc.study.domain;
 
 import lombok.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -24,6 +25,7 @@ public class Store {
     private Address address;
 
     @Column(name = "rating")
+    @ColumnDefault("0")
     private float rating;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -31,6 +33,7 @@ public class Store {
     private Category category;
 
     @Column(columnDefinition = "TINYINT(1)")
+    @ColumnDefault("0")
     private boolean status;
 
     @Column(name = "created_at")
