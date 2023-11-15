@@ -2,6 +2,7 @@ package umc.study.domain;
 
 import lombok.*;
 import umc.study.domain.common.BaseEntity;
+import umc.study.domain.enums.Gender;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,10 +14,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class User extends BaseEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String gender;
+    private Gender gender;
     private LocalDateTime birth;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
